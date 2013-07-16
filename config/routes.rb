@@ -1,23 +1,12 @@
 Cumulus::Application.routes.draw do
-  get "cards/front"
 
-  get "cards/create"
-
-  get "cards/back"
-
-  get "cards/update"
-
-  get "cards/show"
-
-  get "cards_controller/front"
-
-  get "cards_controller/create"
-
-  get "cards_controller/back"
-
-  get "cards_controller/update"
-
-  get "cards_controller/show"
+  controller :cards do
+    get  '/front',            action: 'front',  as: 'front_of_card'
+    post '/save',             action: 'create', as: 'save_card'
+    get  '/my_contact_info',  action: 'back',   as: 'back_of_card'
+    put  '/save',             action: 'update', as: 'save_card'
+    get  '/my_card',          action: 'show',   as: 'card'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -68,7 +57,7 @@ Cumulus::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'cards#front'
 
   # See how all your routes lay out with "rake routes"
 
