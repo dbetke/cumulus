@@ -1,4 +1,24 @@
 Cumulus::Application.routes.draw do
+  get "cards/front"
+
+  get "cards/create"
+
+  get "cards/back"
+
+  get "cards/update"
+
+  get "cards/show"
+
+  get "cards_controller/front"
+
+  get "cards_controller/create"
+
+  get "cards_controller/back"
+
+  get "cards_controller/update"
+
+  get "cards_controller/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
