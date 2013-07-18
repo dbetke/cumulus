@@ -5,6 +5,12 @@ class CardsController < ApplicationController
   end
 
   def create
+    @skill= Skill.new(params[:skill])
+    @tag = Tag.new(params[:tag])
+		@tag.save
+		@skill.tag_id = @tag.id
+		@skill.save
+		redirect_to front_of_card_path, notice: 'Skill was successfully created.'
 		#get user/session
 		#save skills & tags
   end

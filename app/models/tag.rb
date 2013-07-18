@@ -1,4 +1,4 @@
 class Tag < ActiveRecord::Base
-	has_many :skills
   attr_accessible :name
+	has_many :skills
 end
