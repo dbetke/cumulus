@@ -10,9 +10,6 @@ class CardsController < ApplicationController
     end
   end
 		
-		
-  end
-
   def create
     @skill= Skill.new(params[:skill])
     @tag = Tag.new(params[:tag])
@@ -37,6 +34,7 @@ class CardsController < ApplicationController
       format.json { render json: @user.errors, status: :unprocessable_entity }
     end
    end
+	end
 
   def update
 		#update tags & skills
