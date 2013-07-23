@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Cumulus::Application.load_tasks
+Cardulus::Application.load_tasks

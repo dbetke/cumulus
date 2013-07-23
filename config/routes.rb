@@ -1,4 +1,4 @@
-Cumulus::Application.routes.draw do
+Cardulus::Application.routes.draw do
 
   controller :cards do
     get  '/front',            action: 'front',  as: 'front_of_card'
