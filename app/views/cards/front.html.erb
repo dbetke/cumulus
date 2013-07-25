@@ -1,9 +1,7 @@
-<h1>Cards#front</h1>
-<p>Find me in app/views/cards/front.html.erb</p>
+<%= form_tag :action => 'create' %>     
 
-<%= form_tag :action => 'create' %>
-tag name
-<%= text_field 'tag','name'%></p>
-tag weight
-<%= text_field 'skill','weight'%></p>
+<div id="dynamicInput">
+          Tag <input type="text" name="tag[name][]"> Weight <input type="text" name="skill[weight][]">
+     </div>
+     <input type="button" value="Add New Tag" onClick="addInput('dynamicInput');">
 <%= submit_tag "Create"%>
