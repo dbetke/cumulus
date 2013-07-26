@@ -6,39 +6,27 @@
 
   <%= form_tag save_card_path, method: :post do -%>
 
-    <div class="skill">
-      <div class="field">
-        <%= label_tag 'tag' %>
-        <%= text_field_tag 'tag[]', nil, class: 'tag' %>
-      </div>
-      <div class="field">
-        <%= label_tag 'weight' %>
-        <%= text_field_tag 'weight[]', nil, class: 'weight' %>
-      </div>
-    </div>
-    <div class="clear"></div>
+    <div id="skillSet">
 
-    <a href="javascript:;" class="newTag">Add New Tag</a>
+      <%= render partial: "skills/form", locals: {skill: false} %>
 
-    <% if @skills %>
-      <% for skill in @skills -%>
-        <div class="skill" id="skill_#{skill.id}">
-          <div class="field">
-            <%= label_tag 'tag' %>
-            <%= text_field_tag 'tag[]', skill.tag.name, class: 'tag' %>
-          </div>
-          <div class="field">
-            <%= label_tag 'weight' %>
-            <%= text_field_tag 'weight[]', skill.weight, class: 'weight' %>
-          </div>
-        </div>
-        <div class="clear"></div>
+      <a href="javascript:;" id="addNewTag">Add New Tag</a>
+
+      <% if @skills %>
+        <% for skill in @skills -%>
+          <%= render partial: "skills/form", locals: {skill: skill} %>
+        <% end %>
       <% end %>
-    <% end %>
+
+    </div>
 
     <div id="saveMyCard">
       <%= submit_tag "Save My Card"%>
     </div>
 
   <% end %>
+</div>
+
+<div class="hide" id="newSkillForm">
+  <%= render partial: "skills/form", locals: {skill: false} %>
 </div>
