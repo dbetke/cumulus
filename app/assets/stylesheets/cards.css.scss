@@ -1,3 +1,63 @@
-// Place all the styles related to the Cards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "_mixins";
+
+#frontOfCard {
+
+  #tagCloud {
+    width: 410px;
+    height: 200px;
+    border: inset 1px $light-grey;
+    margin: 30px auto;
+    @include rounded-corners;
+
+    h1 {
+      text-align: center;
+      line-height: 200px;
+      font-size: 20px;
+      color: $light-grey;
+      @include text-shadow;
+    }
+  }
+
+  .skill {
+    margin: 20px auto;
+    width: 410px;
+    height: 50px;
+    border-bottom: dotted 1px $light-grey;
+
+    .field {
+      float: left;
+
+      label, input {
+        display: inline-block;
+      }
+
+      label {
+        width: 50px;
+        text-align: right;
+      }
+
+      input.tag {
+        width: 200px;
+      }
+
+      input.weight {
+        width: 50px;
+      }
+
+    }
+
+  }
+
+  .newTag {
+    display: block;
+    @include blue-button;
+    width: 90px;
+    text-align: center;
+    border: 0;
+    margin: 20px auto;
+  }
+
+  #saveMyCard {
+    text-align: center;
+  }
+}

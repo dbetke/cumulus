@@ -1,0 +1,58 @@
+/* Colors */
+$black: #111111;
+$white: #fff;
+$off-white: #f1f1f1;
+$light-grey: #ccc;
+$grey: #888686;
+$dark-grey: #5d5d5d;
+$darker-grey: #353535;
+$blue: #285A96;
+$light-blue: #56bceb;
+$red: #ab1313;
+$red-orange: #d24f22;
+$green: #57AA24;
+$footer: #e9e9e9;
+
+/* Mixins */
+
+@mixin hide-content {
+	display: none;
+}
+
+@mixin drop-shadow {
+	text-shadow: 1px 1px 3px $black;
+}
+
+@mixin text-shadow {
+	text-shadow: rgba(255,255,255,0.75) 1px 1px;
+}
+
+@mixin rounded-corners($radius: 10px) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin blue-button {
+  background-image: -webkit-linear-gradient(top, transparent, rgba(0,0,0,0.1));
+	background-image: -moz-linear-gradient(top, transparent, rgba(0,0,0,0.1));
+	background-image: -o-linear-gradient(top, transparent, rgba(0,0,0,0.1));
+	-webkit-box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35),0 0 0px #56bceb;
+	-moz-box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35),0 0 0px #56bceb;
+	-o-box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35),0 0 0px #56bceb;
+	border: solid 1px #44a8d7;
+}
+
+@mixin opacity($value: 1) {
+	opacity: $value;
+	filter:alpha(opacity = $value * 100);
+}
+
+/* Functions
+
+http://thesassway.com/advanced/pure-sass-functions
+*/
+
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}

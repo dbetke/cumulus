@@ -1,7 +1,44 @@
-<%= form_tag :action => 'create' %>     
+<div id="frontOfCard">
 
-<div id="dynamicInput">
-          Tag <input type="text" name="tag[name][]"> Weight <input type="text" name="skill[weight][]">
-     </div>
-     <input type="button" value="Add New Tag" onClick="addInput('dynamicInput');">
-<%= submit_tag "Create"%>
+  <div id="tagCloud">
+    <h1>TAG CLOUD</h1>
+  </div>
+
+  <%= form_tag save_card_path, method: :post do -%>
+
+    <div class="skill">
+      <div class="field">
+        <%= label_tag 'tag' %>
+        <%= text_field_tag 'tag[]', nil, class: 'tag' %>
+      </div>
+      <div class="field">
+        <%= label_tag 'weight' %>
+        <%= text_field_tag 'weight[]', nil, class: 'weight' %>
+      </div>
+    </div>
+    <div class="clear"></div>
+
+    <a href="javascript:;" class="newTag">Add New Tag</a>
+
+    <% if @skills %>
+      <% for skill in @skills -%>
+        <div class="skill" id="skill_#{skill.id}">
+          <div class="field">
+            <%= label_tag 'tag' %>
+            <%= text_field_tag 'tag[]', skill.tag.name, class: 'tag' %>
+          </div>
+          <div class="field">
+            <%= label_tag 'weight' %>
+            <%= text_field_tag 'weight[]', skill.weight, class: 'weight' %>
+          </div>
+        </div>
+        <div class="clear"></div>
+      <% end %>
+    <% end %>
+
+    <div id="saveMyCard">
+      <%= submit_tag "Save My Card"%>
+    </div>
+
+  <% end %>
+</div>

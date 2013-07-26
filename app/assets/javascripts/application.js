@@ -13,10 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-var counter = 1;
-function addInput(divName){
-	var newdiv = document.createElement('div');
-	newdiv.innerHTML = "Tag <input type='text' name='tag[name][]'> Weight <input type='text' name='skill[weight][]'>";
-	document.getElementById(divName).appendChild(newdiv);
-	counter++;
-}

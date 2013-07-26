@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cardulus</title>
+  <title>Cardul.us</title>
+  <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <div id="wrapper">
+
+    <div id="header">
+      <%= image_tag "cardulus.png", width: 459, height: 64, alt: "Cardul.us" %>
+    </div>
+
+    <div id="content">
+      <%= yield %>
+    </div>
+
+  </div>
 
 </body>
 </html>

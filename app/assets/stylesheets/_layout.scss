@@ -1,0 +1,19 @@
+@import "_mixins";
+
+body {
+  #wrapper {
+    position: relative;
+  	width: 1000px;
+  	margin: 20px auto;
+
+    #header {
+      text-align: center;
+      width: 100%;
+    }
+
+    #content {
+
+
+    }
+  }
+}

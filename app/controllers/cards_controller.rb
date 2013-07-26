@@ -2,9 +2,12 @@ class CardsController < ApplicationController
 
   def front
 		#create user/session if one does not exsist
-		#get tags/skills
-		@tags  = Tag.new(params[:tag])
-		@skill = Skill.new(params[:skill])
+    #User.find_or_create_by_cookie
+
+    # Get Skills
+    if current_user
+      @skills = current_user.skills.by_weight.includes(:tags)
+    end
 
  		respond_to do |format|
       format.html # front.html.erb

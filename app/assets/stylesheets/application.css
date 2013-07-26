@@ -9,5 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require '_reset'
+ *= require '_defaults'
+ *= require '_layout'
  *= require_tree .
  */

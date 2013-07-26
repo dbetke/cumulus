@@ -1,0 +1,187 @@
+@import "_mixins";
+
+/*
+
+	DEFAULTS
+
+*/
+
+html, body {
+  background: $white;
+  color: $black;
+  font-size: 12px;
+  line-height: 20px;
+  transition: all .2s linear;
+  -o-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  -webkit-transition: all .2s linear;
+}
+
+img {
+  transition:all .2s linear;
+  -o-transition:all .2s linear;
+  -moz-transition:all .2s linear;
+  -webkit-transition:all .2s linear;
+}
+
+* {
+	font-family: 'Bree Serif', serif;
+}
+
+// Header Tags
+
+h1 {
+  font-size: 18px;
+  margin: 4px 0 10px;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: left;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 6px 0;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+h4 {
+  font-size: 21px;
+  color: $red;
+  font-weight: bolder;
+  margin: 4px 0;
+}
+
+h5 {
+  font-size: 13px;
+  font-weight: bolder;
+  color: $dark-grey;
+}
+
+h6 {
+  font-size: 17px;
+  font-weight: bolder;
+  margin: 36px 0 17px;
+}
+
+
+// Links
+
+a {
+	color: $black;
+  text-decoration: none;
+}
+
+a:active {
+  color: $dark-grey;
+}
+
+a:link, a:visited {
+  color: $black;
+}
+
+a:hover {
+  color: $red;
+}
+
+
+// Forms
+
+img, input, select, option {
+  vertical-align: middle;
+}
+
+textarea, input {
+  @include rounded-corners(3px);
+  border: 1px $light-grey solid;
+  font-size: 12px;
+  color: $dark-grey;
+  padding: 5px;
+  text-align: left;
+}
+
+input[type=submit] {
+  @include rounded-corners(20px);
+  border: none;
+  background-color: $dark-grey;
+  text-align: center;
+  color: $white;
+  width: inherit;
+  padding: 10px 20px;
+}
+
+input:focus {
+  background: $white;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+label.error {
+  color: $red;
+  font-size: 11px;
+}
+
+
+
+// Formatting
+
+em {
+  font-style:italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+p {
+	margin-bottom: 20px;
+}
+
+pre.code {
+  border:  solid 1px $light-grey;
+  padding: 10px;
+  font-family: "Courier New", Courier, Monaco, monospace;
+  color: $black;
+}
+
+
+// Common Classes
+
+.clear {
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.inline {
+	display: inline;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.noSelect {
+	user-select: none;
+	-o-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+
+.fontNormal {
+  font-weight: normal;
+}
