@@ -19,7 +19,11 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
   pool: 5
-  timeout: 5000
+  username: postgres
+  password: postgres
+  host: 127.0.0.1
+  database: cardulus
