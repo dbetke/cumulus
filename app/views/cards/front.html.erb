@@ -10,8 +10,6 @@
 
       <%= render partial: "skills/form", locals: {skill: false} %>
 
-      <a href="javascript:;" id="addNewTag">Add New Tag</a>
-
       <% if @skills %>
         <% for skill in @skills -%>
           <%= render partial: "skills/form", locals: {skill: skill} %>
@@ -19,6 +17,8 @@
       <% end %>
 
     </div>
+
+    <a href="javascript:;" id="addNewTag">Add New Tag</a>
 
     <div id="saveMyCard">
       <%= submit_tag "Save My Card"%>

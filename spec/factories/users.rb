@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    cookie "gseh7877t89ewr89bht7er87tbh98ebt7er89hw789"
+    cookie "h3g5hj34gj5gk35h4j3jk5345jh43g5"
     name "MyName"
   end
 end
