@@ -21,7 +21,7 @@ class Skill < ActiveRecord::Base
   scope :by_weight, ->{ order(:weight) }
 
   #
-  # Dosument Skills
+  # Document Skills
   #
 
   def self.document_skills tags, weights, user
@@ -30,5 +30,16 @@ class Skill < ActiveRecord::Base
       user.skills.create(tag_id: tag.id, weight: weights[index])
     end
   end
+
+  #
+  # Document User info (back of card)
+  #
+
+  def self.document_user_info name, box1, box2, user 
+		user.name = name
+		user.box1 = box1
+		user.box2 = box2
+		user.save
+	end
 
 end

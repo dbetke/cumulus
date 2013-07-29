@@ -22,7 +22,7 @@ class CardsController < ApplicationController
   end
 
   def back
-
+		Skill.document_user_info(params[:name], params[:box1], params[:box2], current_user)
  		respond_to do |format|
       format.html
     end

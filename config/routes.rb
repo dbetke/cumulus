@@ -3,8 +3,9 @@ Cardulus::Application.routes.draw do
   controller :cards do
     get  '/front',            action: 'front',  as: 'front_of_card'
     post '/save',             action: 'create', as: 'save_card'
-    get  '/my_contact_info',  action: 'back',   as: 'back_of_card'
     put  '/save',             action: 'update', as: 'save_card'
+    get  '/my_contact_info',  action: 'back',   as: 'back_of_card'
+    post '/my_contact_info',  action: 'back',   as: 'back_of_card'
     get  '/my_card',          action: 'show',   as: 'card'
   end
 
