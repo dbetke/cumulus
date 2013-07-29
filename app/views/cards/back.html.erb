@@ -1,4 +1,27 @@
 <h1>Cards#back</h1>
 <p>Find me in app/views/cards/back.html.erb</p>
 
+<%= form_tag back_of_card_path, method: :post do -%>
+<div class="back">
+  <div class="field">
+    <%= label_tag 'name' %>
+    <%= text_field_tag 'name' %>
+  </div>
+  <div class="field">
+    <%= label_tag 'box1' %>
+    <%= text_field_tag 'box1' %>
+  </div>
+  <div class="field">
+    <%= label_tag 'box2' %>
+    <%= text_field_tag 'box2' %>
+  </div>
+</div>
+
+<div class="clear"></div>
+    <div id="saveMyCard">
+      <%= submit_tag "Save Back of Card"%>
+    </div>
+
+  <% end %>
+
 <h2><%= link_to "View My Tags", front_of_card_path %></h2>

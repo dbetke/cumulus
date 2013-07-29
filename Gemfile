@@ -22,6 +22,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'ffaker'
   gem 'debugger'
+	gem 'quiet_assets'
+	gem 'thin'
 end
 
 gem 'jquery-rails'
