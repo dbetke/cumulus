@@ -44,9 +44,12 @@ describe "creating Factory instances" do
       it "should raise an error if the proper variables are not arrays" do
         lambda{ Skill.document_skills "lavergne", "shirley", "bozo" }.should raise_error
       end
+
+    	it "should test that skills are saved properly" do
+        lambda{ Skill.document_skills ["test2", "test1", "test2"], ["22", "1", "2"], :user }.should_not raise_error
+			end
     end
 
-    it "should test that skills are saved properly"
     it "should test that the proper weights are assigned"
     it "should test that tags are not duplicated"
   end
