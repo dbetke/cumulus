@@ -22,26 +22,17 @@ class CardsController < ApplicationController
   end
 
   def back
-		Skill.document_user_info(params[:name], params[:box1], params[:box2], current_user)
- 		respond_to do |format|
-      format.html
-    end
+
 	end
 
   def update
-    # respond_to do |format|
-    #   if @user.save
-    #     format.html { redirect_to back_of_card_path, notice: 'Card was successfully created.' }
-    #     format.json { render json: @user, status: :created, location: @user }
-    #   else
-    #     format.html { render action: "front" }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
+		Skill.document_user_info(params[:name], params[:box1], params[:box2], current_user)
+
+    redirect_to card_path
 	end
 
   def show
-		#get tags
+    @skills = current_user.skills.by_weight.includes(:tag) if current_user
   end
 
 end
