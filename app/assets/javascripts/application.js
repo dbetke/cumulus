@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require utilities
+//= require plugins/jquery.awesomeCloud-0.2.min
 //= require_tree .

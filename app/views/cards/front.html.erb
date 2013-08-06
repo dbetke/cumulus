@@ -1,23 +1,21 @@
 <div id="frontOfCard">
-  <div id="tagCloud">
-    <h1>TAG CLOUD</h1>
+
+  <div id="cardulus">
   </div>
 
   <%= form_tag save_card_path, method: :post do -%>
 
-    <div id="skillSet">
-
-      <%= render partial: "skills/form", locals: {skill: false} %>
+  	<div id="controls">
 
       <% if @skills %>
-        <% for skill in @skills -%>
-          <%= render partial: "skills/form", locals: {skill: skill} %>
+        <% @skills.each_with_index do |skill, id| %>
+      		<%= render partial: 'skills/form', locals: {id: id, skill: skill} %>
         <% end %>
       <% end %>
 
-    </div>
-
-    <a href="javascript:;" id="addNewTag">Add New Tag</a>
+      <% newId = @skills.count + 1 %>
+  		<%= render partial: "skills/form", locals: {id: newId, skill: false} %>
+  	</div>
 
     <div id="saveMyCard">
       <%= submit_tag "Save My Card"%>
@@ -26,6 +24,6 @@
   <% end %>
 </div>
 
-<div class="hide" id="newSkillForm">
-  <%= render partial: "skills/form", locals: {skill: false} %>
-</div>
+<!-- <div class="hide" id="newSkillForm">
+  render partial: "skills/form", locals: {skill: false} %>
+</div> -->

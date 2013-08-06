@@ -2,20 +2,20 @@
 
 #frontOfCard {
 
-  #tagCloud {
+  #cardulus {
     width: 410px;
     height: 200px;
     border: inset 1px $light-grey;
     margin: 30px auto;
     @include rounded-corners;
 
-    h1 {
-      text-align: center;
-      line-height: 200px;
-      font-size: 20px;
-      color: $light-grey;
-      @include text-shadow;
-    }
+//    h1 {
+//      text-align: center;
+//      line-height: 200px;
+//      font-size: 20px;
+//      color: $light-grey;
+//      @include text-shadow;
+//    }
   }
 
   .skill {
@@ -58,5 +58,19 @@
 
   #saveMyCard {
     text-align: center;
+  }
+
+  #controls:before,
+  #controls:after { content:""; display:table; }
+  #controls:after { clear:both; }
+
+  #controls {
+    width: 525px;
+    margin: 30px auto;
+
+    input { float: left; }
+    button, .tag { clear: both; }
+    .slider { width: 300px; float: left; margin-left: 15px; }
+    .add-word, .remove-word { float: right; }
   }
 }

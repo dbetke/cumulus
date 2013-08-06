@@ -33,6 +33,7 @@ group :production do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'quiet_assets'
 
 # To use ActiveModel has_secure_password
