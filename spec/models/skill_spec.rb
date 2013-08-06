@@ -31,7 +31,7 @@ describe "creating Factory instances" do
   # Save Skills
   #
 
-  describe "document_skills" do
+  describe "document_skills", focus: true do
     let(:user) { create(:user) }
     let(:ruby) { create(:tag, name: "ruby") }
     let(:html) { create(:tag, name: "html") }
@@ -46,12 +46,23 @@ describe "creating Factory instances" do
       end
 
     	it "should test that skills are saved properly" do
-        lambda{ Skill.document_skills ["test2", "test1", "test2"], ["22", "1", "2"], :user }.should_not raise_error
+        lambda{ Skill.document_skills ["test2", "test1", "test2"], ["22", "1", "2"], user }.should_not raise_error
 			end
     end
 
-    it "should test that the proper weights are assigned"
-    it "should test that tags are not duplicated"
+    context "testing valid data" do
+      before(:each) do
+        Skill.document_skills ["test2", "test1", "test2"], ["22", "1", "2"], user
+      end
+
+      it "should test that the proper weights are assigned" do
+        user.skills.find_by_tag_id(Tag.find_by_name("test1")).weight.should == 1
+      end
+
+      it "should test that the proper weights are assigned" do
+        user.tags.where(name: "test2").count.should == 1
+      end
+    end
   end
 
 end
