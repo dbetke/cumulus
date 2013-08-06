@@ -1,0 +1,6 @@
+<div data-tag="<%= id %>" class="tag">
+  <%= text_field_tag 'tags[]', (skill ? skill.tag.name : nil), "data-tag" => id, :class => "word" %>
+  <%= hidden_field_tag 'weights[]', (skill ? skill.weight : nil), "data-tag" => id, :class => "weight" %>
+	<div class="slider slider-<%= id %>"></div>
+	<a data-tag="<%= id %>" class="add-word" href="<%= id %>">+</a>
+</div>

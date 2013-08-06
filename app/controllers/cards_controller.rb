@@ -6,6 +6,7 @@ class CardsController < ApplicationController
 
  		respond_to do |format|
       format.html
+      format.pdf { render :pdf => "cardulus" }
     end
   end
 

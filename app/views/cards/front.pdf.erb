@@ -1,0 +1,29 @@
+<div id="frontOfCard">
+
+  <div id="cardulus">
+  </div>
+
+  <%= form_tag save_card_path, method: :post do -%>
+
+  	<div id="controls">
+
+      <% if @skills %>
+        <% @skills.each_with_index do |skill, id| %>
+      		<%= render partial: 'skills/form', locals: {id: id, skill: skill} %>
+        <% end %>
+      <% end %>
+
+      <% newId = @skills.count + 1 %>
+  		<%= render partial: "skills/form", locals: {id: newId, skill: false} %>
+  	</div>
+
+    <div id="saveMyCard">
+      <%= submit_tag "Save My Card"%>
+    </div>
+
+  <% end %>
+</div>
+
+<!-- <div class="hide" id="newSkillForm">
+  render partial: "skills/form", locals: {skill: false} %>
+</div> -->
