@@ -1,17 +1,17 @@
-<%= form_tag save_card_path, method: :put do -%>
+<%= form_for @current_user, url: save_card_path do |f| %>
 
 <div class="back">
   <div class="field">
     <%= label_tag 'name' %>
-    <%= text_field_tag 'name' %>
+    <%= f.text_field 'name' %>
   </div>
   <div class="field">
     <%= label_tag 'box1' %>
-    <%= text_field_tag 'box1' %>
+    <%= f.text_area 'box1' %>
   </div>
   <div class="field">
     <%= label_tag 'box2' %>
-    <%= text_field_tag 'box2' %>
+    <%= f.text_area 'box2' %>
   </div>
 </div>
 

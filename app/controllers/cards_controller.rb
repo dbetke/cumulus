@@ -23,12 +23,18 @@ class CardsController < ApplicationController
 
   def back
 
+ 		respond_to do |format|
+      format.html
+    end
 	end
 
   def update
-		Skill.document_user_info(params[:name], params[:box1], params[:box2], current_user)
+		@current_user.update_attributes(params[:user])
+    #Skill.document_user_info(params[:name], params[:box1], params[:box2], current_user)
 
-    redirect_to card_path
+ 		respond_to do |format|
+      format.html { redirect_to card_path }
+    end
 	end
 
   def show

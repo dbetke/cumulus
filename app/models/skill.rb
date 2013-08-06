@@ -31,15 +31,4 @@ class Skill < ActiveRecord::Base
     end
   end
 
-  #
-  # Document User info (back of card)
-  #
-
-  def self.document_user_info name, box1, box2, user 
-		user.name = name
-		user.box1 = box1
-		user.box2 = box2
-		user.save
-	end
-
 end
