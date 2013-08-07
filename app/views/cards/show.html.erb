@@ -1,19 +1,23 @@
+<% if current_user.name %>
+  <h3><%= current_user.name %></br></h3>
+<% end %>
+<% if current_user.box1 %>
+  <h3><%= current_user.box1 %></br></h3>
+<% end %>
+<% if current_user.box2%>
+  <h3><%= current_user.box2 %></br></h3>
+<% end %>
+
+</br>
+
 <% if @skills %>
-  <% if current_user.name %>
-    <h3><%= current_user.name %></br></h3>
-  <% end %>
-  <% if current_user.box1 %>
-    <h3><%= current_user.box1 %></br></h3>
-  <% end %>
-  <% if current_user.box2%>
-    <h3><%= current_user.box2 %></br></h3>
-<% end %>
-</br>
-<% @skills.each do |s| %>
-  Tag:<%= s.tag.name %>
-  Weight:<%= s.weight %></br>
+  <% @skills.each do |skill| %>
+  Tag:<%= skill.tag.name %>
+  Weight:<%= skill.weight %></br>
   <% end %>
 <% end %>
+
 </br>
+
 <h2><%= link_to "Update My Cloud Tags", front_of_card_path %></h2>
 <h2><%= link_to "Update Back of Card", back_of_card_path %></h2>
