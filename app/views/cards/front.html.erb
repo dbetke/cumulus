@@ -13,7 +13,7 @@
         <% end %>
       <% end %>
 
-      <% newId = @skills.count + 1 %>
+      <% newId = @skills ? @skills.count + 1 : 1 %>
   		<%= render partial: "skills/form", locals: {id: newId, skill: false} %>
   	</div>
 
