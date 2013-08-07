@@ -45,8 +45,16 @@ describe "creating Factory instances" do
         lambda{ Skill.document_skills "lavergne", "shirley", "bozo" }.should raise_error
       end
 
-    	it "should test that skills are saved properly" do
-        lambda{ Skill.document_skills ["test2", "test1", "test2"], ["22", "1", "2"], user }.should_not raise_error
+    	it "should not raise an error with the proper data structures" do
+        lambda{ Skill.document_skills ["test1", "test2", "test3"], ["22", "1", "2"], user }.should_not raise_error
+			end
+
+    	it "should not raise an error with duplicated data" do
+        lambda{ Skill.document_skills ["test1", "test1", "test2"], ["22", "1", "2"], user }.should_not raise_error
+			end
+
+    	it "should not raise an error with an empty element in the arrays" do
+        lambda{ Skill.document_skills ["test2", "test1", ""], ["22", "1", ""], user }.should_not raise_error
 			end
     end
 
@@ -55,11 +63,15 @@ describe "creating Factory instances" do
         Skill.document_skills ["test2", "test1", "test2"], ["22", "1", "2"], user
       end
 
-      it "should test that the proper weights are assigned" do
+      it "should test that the proper weights are assigned for test1" do
         user.skills.find_by_tag_id(Tag.find_by_name("test1")).weight.should == 1
       end
 
-      it "should test that the proper weights are assigned" do
+      it "should test that the proper weights are assigned for test2" do
+        user.skills.find_by_tag_id(Tag.find_by_name("test2")).weight.should == 22
+      end
+
+      it "should test that duplicate tag names are ignored" do
         user.tags.where(name: "test2").count.should == 1
       end
     end
