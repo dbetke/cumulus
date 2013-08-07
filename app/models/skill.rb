@@ -5,7 +5,9 @@ class Skill < ActiveRecord::Base
   # Validations
   #
 
-  validates :tag_id, :uniqueness => {:scope => :user_id}
+  validates :user_id, presence: true, numericality: true
+  validates :tag_id,  presence: true, numericality: true, uniqueness: { scope: :user_id }
+  validates :weight,  presence: true, numericality: true
 
   #
   # Associations
@@ -26,9 +28,9 @@ class Skill < ActiveRecord::Base
 
   def self.document_skills tags, weights, user
     tags.each_with_index do |tag, index|
-      tag = Tag.find_or_create_by_name(tag.downcase)
-      user.skills.create(tag_id: tag.id, weight: weights[index])
+      if tag = Tag.find_or_create_by_name(tag.downcase)
+        user.skills.create(tag_id: tag.id, weight: weights[index])
+      end
     end
   end
-
 end

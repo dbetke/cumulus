@@ -13,7 +13,13 @@ describe "creating Factory instances" do
   describe "validations" do
 		subject { create(:skill) }
 
+    it { should validate_presence_of(:user_id) }
+    it { should validate_numericality_of(:user_id) }
 		it { should validate_uniqueness_of(:tag_id).scoped_to(:user_id) }
+    it { should validate_presence_of(:tag_id) }
+    it { should validate_numericality_of(:tag_id) }
+    it { should validate_presence_of(:weight) }
+    it { should validate_numericality_of(:weight) }
   end
 
 	#
@@ -60,19 +66,30 @@ describe "creating Factory instances" do
 
     context "testing valid data" do
       before(:each) do
-        Skill.document_skills ["test2", "test1", "test2"], ["22", "1", "2"], user
+        Skill.document_skills ["test2", "test1", "test2", "test3", ""], ["22", "1", "2", "500", ""], user
       end
 
       it "should test that the proper weights are assigned for test1" do
-        user.skills.find_by_tag_id(Tag.find_by_name("test1")).weight.should == 1
+        user.skills.joins(:tag).where('tags.name' => 'test1').count.should == 1
+        user.skills.joins(:tag).where('tags.name' => 'test1').first.weight.should == 1
       end
 
       it "should test that the proper weights are assigned for test2" do
-        user.skills.find_by_tag_id(Tag.find_by_name("test2")).weight.should == 22
+        user.skills.joins(:tag).where('tags.name' => 'test2').count.should == 1
+        user.skills.joins(:tag).where('tags.name' => 'test2').first.weight.should == 22
+      end
+
+      it "should test that the proper weights are assigned for test3" do
+        user.skills.joins(:tag).where('tags.name' => 'test3').count.should == 1
+        user.skills.joins(:tag).where('tags.name' => 'test3').first.weight.should == 500
       end
 
       it "should test that duplicate tag names are ignored" do
         user.tags.where(name: "test2").count.should == 1
+      end
+
+      it "should save all valid skills" do
+        user.skills.count.should == 3
       end
     end
   end
