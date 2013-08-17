@@ -3,24 +3,40 @@
 <head>
   <title>Cardul.us</title>
   <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <script>var uid = "<%= current_user.cookie %>";</script>
 </head>
 <body>
+  <nav id="nav-top">
+    <div class="container">
+      <a href="#" class="logo">
+        <%= image_tag "logo.png", alt: "Cardul.us" %>
+      </a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      
+    </div>
+  </header>
 
   <div id="wrapper">
-
-    <div id="header">
-      <%= image_tag "cardulus.png", width: 459, height: 64, alt: "Cardul.us" %>
-    </div>
 
     <div id="content">
       <%= yield %>
     </div>
 
   </div>
-
+  
+  <footer>
+    <div class="container">
+      
+    </div>
+  </footer>
 </body>
 </html>

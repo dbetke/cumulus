@@ -1,5 +1,44 @@
 @import "_mixins";
 
+// Thanks, Paul: http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+input { box-sizing: content-box; }
+
+body {
+  min-width: 960px;
+  background: #fff url(/assets/furley_bg.png) repeat center top;
+}
+
+#nav-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  background: #303030;
+  border-bottom: 1px solid #FFF;
+  z-index: 1000;
+
+  .logo {
+    &:after {
+      display: block;
+      width: 72px;
+      margin: -3px 0 0 58px;
+      border-bottom: 4px solid #EF7247;
+      content: '';
+    }
+    &:hover:after {
+      border-bottom-color: #4390BB;
+    }
+  }
+}
+
+header {
+  height: 500px;
+  padding-top: 40px;
+  border-bottom: 3px solid #DCDCDC;
+  background: #FFF url(/assets/bg.jpg) no-repeat center center fixed;
+}
+
 #frontOfCard {
 
   #cardulus {
@@ -73,4 +112,10 @@
     .slider { width: 300px; float: left; margin-left: 15px; }
     .add-word, .remove-word { float: right; }
   }
+}
+
+footer {
+  min-height: 200px;
+  border-top: 3px solid #000;
+  background: #000 url(/assets/txture.png) repeat center bottom;
 }
