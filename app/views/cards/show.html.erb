@@ -1,23 +1,39 @@
-<% if current_user.name %>
-  <h3><%= current_user.name %></br></h3>
-<% end %>
-<% if current_user.box1 %>
-  <h3><%= current_user.box1 %></br></h3>
-<% end %>
-<% if current_user.box2%>
-  <h3><%= current_user.box2 %></br></h3>
-<% end %>
+<div id="showCard">
+  <h1>Review Your Card</h1>
 
-</br>
+  <div class="cardWrapper left">
+    <h2>Front Of Card</h2>
+    <div class="cardBox">
+      <% if @skills %>
+        <% @skills.each do |skill| %>
+        Tag:<%= skill.tag.name %>
+        Weight:<%= skill.weight %></br>
+        <% end %>
+      <% end %>
+    </div>
+    <h2><%= link_to "Update My Cloud Tags", front_of_card_path %></h2>
+  </div>
 
-<% if @skills %>
-  <% @skills.each do |skill| %>
-  Tag:<%= skill.tag.name %>
-  Weight:<%= skill.weight %></br>
-  <% end %>
-<% end %>
+  <div class="cardWrapper right">
+    <h2>Back Of Card</h2>
+    <div class="cardBox" id="back">
+      <% if current_user.name %>
+        <h3 class="name"><%= current_user.name %></h3>
+      <% end %>
+      <% if current_user.box1 %>
+        <div class="box1"><%= simple_format current_user.box1 %></div>
+      <% end %>
+      <% if current_user.box2%>
+        <div class="box2"><%= simple_format current_user.box2 %></div>
+      <% end %>
+    </div>
+     <h2><%= link_to "Update Back of Card", back_of_card_path %></h2>
+  </div>
 
-</br>
+  <div class="clear"></div>
 
-<h2><%= link_to "Update My Cloud Tags", front_of_card_path %></h2>
-<h2><%= link_to "Update Back of Card", back_of_card_path %></h2>
+  <div id="checkout">
+    <%= link_to "Print My Card!", "#" %>
+  </div>
+
+</div>
