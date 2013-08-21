@@ -33,7 +33,7 @@ body {
 }
 
 header {
-  height: 500px;
+  //height: 500px;
   padding-top: 40px;
   border-bottom: 3px solid #DCDCDC;
   background: #FFF url(/assets/bg.jpg) no-repeat center center fixed;
@@ -47,6 +47,7 @@ header {
     border: inset 1px $light-grey;
     margin: 30px auto;
     @include rounded-corners;
+    background: $white;
 
 //    h1 {
 //      text-align: center;
@@ -99,23 +100,42 @@ header {
     text-align: center;
   }
 
-  #controls:before,
-  #controls:after { content:""; display:table; }
-  #controls:after { clear:both; }
+  #controls:before, #controls:after {
+    content: "";
+    display: table;
+  }
+
+  #controls:after {
+    clear:both;
+  }
 
   #controls {
-    width: 525px;
+    width: 560px;
     margin: 30px auto;
 
-    input { float: left; }
-    button, .tag { clear: both; }
-    .slider { width: 300px; float: left; margin-left: 15px; }
-    .add-word, .remove-word { float: right; }
+    input {
+      float: left;
+    }
+
+    button, .tag {
+      clear: both;
+    }
+
+    .slider {
+      width: 300px;
+      float: left;
+      margin: 9px 15px 15px;
+    }
+
+    .add-word, .remove-word {
+      float: right;
+      margin-top: 4px;
+    }
   }
 }
 
 footer {
-  min-height: 200px;
+  //min-height: 200px;
   border-top: 3px solid #000;
   background: #000 url(/assets/txture.png) repeat center bottom;
 }
